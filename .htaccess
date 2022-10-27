@@ -1,0 +1,12 @@
+RewriteEngine on
+#ErrorDocument 404 http://localhost
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule ^page-([0-9a-zA-Z-_]+) menu-detail.php?page=$1 [L,QSA]
+RewriteRule ^category-([0-9a-zA-Z-_]+) categories.php?category=$1 [L,QSA]
+RewriteRule ^product-([0-9a-zA-Z-_]+)-([0-9]+)$  product-detail.php?product=$1&id=$2 [L,QSA]
+RewriteRule ^order-([0-9a-zA-Z-_]+)-([0-9]+)$  order-detail.php?order=$1 [L,QSA]
+RewriteRule ^sitemap\.xml$ sitemap.php
